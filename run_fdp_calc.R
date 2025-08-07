@@ -507,14 +507,24 @@ run_percolator_fdp_analysis=function(report_file="",level="peptide",pep_file=NUL
     # n_run <- a %>% select(Run) %>% distinct() %>% nrow()
     if(level=="protein"){
         # TODO: need to update this part
-    }else if(level=="peptide" || level=="precursor"){ 
-        b <- a %>% select(peptide,`q-value`,`posterior_error_prob`,`proteinIds`) %>% 
-                mutate(mod_peptide=peptide) %>%
-                rename(q_value=`q-value`,peptide=peptide,protein=`proteinIds`,PEP=`posterior_error_prob`) %>%
-                # -.GMGGHGYGGAGDASSGFHGGHFVHMR.-
-                mutate(peptide=str_replace_all(peptide,pattern = "^..",replacement = "")) %>%
-                mutate(peptide=str_replace_all(peptide,pattern = "..$",replacement = "")) %>%
-                mutate(peptide=str_replace_all(peptide,pattern = "[^A-Z]",replacement = ""))
+    }else if(level=="peptide" || level=="precursor"){
+        if (level=="precursor") {
+            b <- a %>% mutate(charge=str_sub(peptide, -3, -3)) %>% select(peptide,`q-value`,`posterior_error_prob`,`proteinIds`,charge) %>%
+              mutate(mod_peptide=peptide) %>%
+              rename(q_value=`q-value`,peptide=peptide,protein=`proteinIds`,PEP=`posterior_error_prob`) %>%
+              # -.YNHDLALLELDEPLVLNSYVTPLC[57.0215]LADK3.-
+              mutate(peptide=str_replace_all(peptide,pattern = "^..",replacement = "")) %>%
+              mutate(peptide=str_replace_all(peptide,pattern = "...$",replacement = "")) %>%
+              mutate(peptide=str_replace_all(peptide,pattern = "[^A-Z]",replacement = ""))
+        } else {
+            b <- a %>% select(peptide,`q-value`,`posterior_error_prob`,`proteinIds`) %>%
+              mutate(mod_peptide=peptide) %>%
+              rename(q_value=`q-value`,peptide=peptide,protein=`proteinIds`,PEP=`posterior_error_prob`) %>%
+              # -.GMGGHGYGGAGDASSGFHGGHFVHMR.-
+              mutate(peptide=str_replace_all(peptide,pattern = "^..",replacement = "")) %>%
+              mutate(peptide=str_replace_all(peptide,pattern = "..$",replacement = "")) %>%
+              mutate(peptide=str_replace_all(peptide,pattern = "[^A-Z]",replacement = ""))
+        }
 
         set.seed(2024)
         b <- b %>% arrange(q_value,PEP) %>% mutate(score=row_number())
