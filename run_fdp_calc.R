@@ -47,9 +47,9 @@ run_diann_fdp_analysis=function(report_file="",level="protein",pep_file=NULL,pre
         fdp_file <- paste(out_dir,"/",prefix,"-diann_fdp_protein.csv",sep="")
 
         if(!is.null(r)){
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -r ",r," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -r ",r," -pick ",pick_one_protein_method,sep="")
         }else{
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
         }
         cat("Running ",cmd,"\n")
         out <- system(cmd,intern = TRUE)
@@ -92,9 +92,9 @@ run_diann_fdp_analysis=function(report_file="",level="protein",pep_file=NULL,pre
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -146,9 +146,9 @@ run_fragpipe_fdp_analysis=function(report_file="",level="protein",pep_file=NULL,
         fdp_file <- paste(out_dir,"/",prefix,"-fragpipe_fdp_protein.csv",sep="")
 
         if(!is.null(r)){
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -r ",r," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -r ",r," -pick ",pick_one_protein_method,sep="")
         }else{
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
         }
         cat("Running ",cmd,"\n")
         out <- system(cmd,intern = TRUE)
@@ -207,11 +207,11 @@ run_encyclopedia_fdp_analysis=function(report_file="",level="protein",pep_file=N
         write_tsv(b,out_file)
         fdp_file <- paste(out_dir,"/",prefix,"-encyclopedia_fdp_protein.csv",sep="")
 
-        #   cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'",sep="")
+        #   cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0",sep="")
         if(!is.null(r)){
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -r ",r," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -r ",r," -pick ",pick_one_protein_method,sep="")
         }else{
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
         }
 
         cat("Running ",cmd,"\n")
@@ -244,11 +244,11 @@ run_encyclopedia_fdp_analysis=function(report_file="",level="protein",pep_file=N
         fdp_file <- paste(out_dir,"/",prefix,"-encyclopedia_fdp_peptide.csv",sep="")
 
         if(!is.null(pep_file)){
-            #   cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+            #   cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score score:0",sep="")
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -307,9 +307,9 @@ run_spectronaut_fdp_analysis=function(report_file="",level="protein",pep_file=NU
         fdp_file <- paste(out_dir,"/",prefix,"-spectronaut_fdp_protein.csv",sep="")
 
         if(!is.null(r)){
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -r ",r," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -r ",r," -pick ",pick_one_protein_method,sep="")
         }else{
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
         }
 
         cat("Running ",cmd,"\n")
@@ -350,9 +350,9 @@ run_spectronaut_fdp_analysis=function(report_file="",level="protein",pep_file=NU
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level precursor -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -361,9 +361,9 @@ run_spectronaut_fdp_analysis=function(report_file="",level="protein",pep_file=NU
         }else{
             cat("No paired peptide file\n")
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level precursor -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level precursor -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level precursor -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level precursor -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -399,9 +399,9 @@ run_maxquant_fdp_analysis=function(report_file="",level="protein",pep_file=NULL,
         fdp_file <- paste(out_dir,"/",prefix,"-maxquant_fdp_protein.csv",sep="")
 
         if(!is.null(r)){
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -r ",r," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -r ",r," -pick ",pick_one_protein_method,sep="")
         }else{
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
         }
 
         cat("Running ",cmd,"\n")
@@ -450,9 +450,9 @@ run_mokapot_fdp_analysis=function(report_file="",level="peptide",pep_file=NULL,p
         fdp_file <- paste(out_dir,"/",prefix,"-diann_fdp_protein.csv",sep="")
 
         if(!is.null(r)){
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -r ",r," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -r ",r," -pick ",pick_one_protein_method,sep="")
         }else{
-            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score 'score:0'"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
+            cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level protein -o ",fdp_file, " -score score:0"," -fold ",k_fold," -pick ",pick_one_protein_method,sep="")
         }
         cat("Running ",cmd,"\n")
         out <- system(cmd,intern = TRUE)
@@ -485,9 +485,9 @@ run_mokapot_fdp_analysis=function(report_file="",level="peptide",pep_file=NULL,p
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -537,9 +537,9 @@ run_percolator_fdp_analysis=function(report_file="",level="peptide",pep_file=NUL
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level ", level, " -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level ", level, " -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -589,9 +589,9 @@ run_percolator_reset_fdp_analysis=function(report_file="",level="peptide",pep_fi
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -641,9 +641,9 @@ run_sage_fdp_analysis=function(report_file="",level="peptide",pep_file=NULL,pref
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -696,9 +696,9 @@ run_msgf_fdp_analysis=function(report_file="",level="peptide",pep_file=NULL,pref
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
@@ -735,9 +735,9 @@ run_fdp_analysis=function(report_file="",level="peptide",pep_file=NULL,prefix="t
 
         if(!is.null(pep_file)){
             if(!is.null(r)){
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -r ",r," -score score:0",sep="")
             }else{
-                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score 'score:0'",sep="")
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -pep ", pep_file, " -level peptide -o ",fdp_file, " -score score:0",sep="")
             }
             cat("Running ",cmd,"\n")
             out <- system(cmd,intern = TRUE)
