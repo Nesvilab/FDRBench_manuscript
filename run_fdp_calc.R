@@ -556,7 +556,15 @@ run_percolator_fdp_analysis=function(report_file="",level="peptide",pep_file=NUL
             cat(paste(out,collapse = "\n"),"\n")
             return(fdp_file)
         }else{
-            cat("No paired peptide file\n")
+            if(!is.null(r)){
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file, " -level ", level, " -o ",fdp_file, " -r ",r," -score score:0",sep="")
+            }else{
+                cmd <- paste("java -jar ~/github/FDRBench/target/fdrbench-0.0.1/fdrbench-0.0.1.jar -i ", out_file," -fold ",k_fold, " -level ", level, " -o ",fdp_file, " -score score:0",sep="")
+            }
+            cat("Running ",cmd,"\n")
+            out <- system(cmd,intern = TRUE)
+            cat(paste(out,collapse = "\n"),"\n")
+            return(fdp_file)
         }
 
     }
