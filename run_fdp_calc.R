@@ -126,11 +126,10 @@ run_fragpipe_fdp_analysis=function(report_file="",level="protein",pep_file=NULL,
                 a$protein[i] <- a$Protein[i]
             }
         }
-        b <- a %>% rename(raw_protein=Protein) %>% select(protein,raw_protein,`Indistinguishable Proteins`) %>% distinct() 
+        b <- a %>% rename(raw_protein=Protein) %>% select(protein,raw_protein,`Indistinguishable Proteins`, `Top Peptide Probability`) %>% distinct()
         b$q_value <- 0.01
         set.seed(2024)
-        b$score <- 1:nrow(b)
-        b <- b %>% arrange(q_value,score) %>% mutate(score=row_number())
+        b <- b %>% arrange(q_value,desc(`Top Peptide Probability`)) %>% mutate(score=row_number())
 
         cat("The number of proteins:",nrow(b),"\n")
 
